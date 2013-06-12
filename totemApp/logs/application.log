@@ -1,0 +1,42 @@
+2013-06-12 22:11:29,005 - [INFO] - from play in main 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2013-06-12 22:11:53,853 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-06-12 22:29:28,467 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-12 22:43:06,365 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-12 22:46:13,500 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-12 22:47:53,919 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-12 22:51:17,914 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-06-12 23:01:04,761 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-12 23:02:30,689 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-12 23:06:59,750 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-12 23:08:17,827 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-12 23:09:24,560 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-12 23:10:49,139 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-12 23:12:14,463 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
