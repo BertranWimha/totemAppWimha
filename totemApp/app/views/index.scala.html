@@ -13,23 +13,30 @@
 	</div>
 	<div id="wrapper" class="container-fluid">
     	<div class="row-fluid">
-	    	<h2 class="introduction">
+	    	<h2 class="centered">
 	    		~ Aloha ! ~    
 	    	</h2>
-	    	<h3 class="introduction">
+	    	<h3 class="centered">
 	    		Be part of my travel
 	    	</h3>
 	    </div>
     	<div class="row-fluid formSection">
 			@helper.form(action = routes.Application.submit()) {
     		    <fieldset>
-			    	<label><i class="icon-location-arrow"></i>  Here you are</label>
+			    	<div class="asterisk centered"> * </div>
+			    	
+			    	<label class="centered labelTitle"><i class="icon-location-arrow"></i>  Here you are</label>
 				    	
-				    	<span id="geolocation">Longitude / Latitude</span>
+				    <p id="geolocation" class="centered">Longitude / Latitude</p>
 			   
-				    <label class="emailField">What's your @@ email ?</label>
+				    <div class="asterisk centered"> * </div>
+
+				    <label class="emailField centered labelTitle">What's your @@ email ?</label>
 				    <input id="mail" name="mail" class="span12 emailInput" type="text" placeholder="totem@@totem.com">
-				    <label>Leave me a cool message !</label>
+
+				    <div class="asterisk centered"> * </div>
+
+				    <label class="centered labelTitle">Leave me a cool message !</label>
 				    <textarea id="someText" name="someText" class="span12" type="text" placeholder="What's on your mind ?" rows="5"></textarea>
 				    <label class="checkbox">
 				    	<input type="checkbox">Receive updates about my travel
