@@ -1,54 +1,47 @@
 @import "/bootstrapLess/bootstrap.less";
+@import "/bootstrapLess/responsive.less";
 
-@media (min-width: 1200px) { 
-	.container {
-		background-color: red;
-		width: 1170px;
-		height: 100%;
-	}
-	#demo {
-		color:blue;
-		font-weight:bold;
+//Variables
+	@navbarBackgroundHighlight: @yellow;
+
+body {
+	height: 100%;
+	background: url('http://api.thumbr.it/whitenoise-361x370.png?background=e2e2e2ff&noise=626262&density=14&opacity=13');
+}
+.navbar {
+	height: 40px;
+	background-color: @navbarBackgroundHighlight;
+}
+#wrapper {
+	width: 90%;
+	margin: 0 auto;
+	.introduction {
 		text-align: center;
+	}
+	.formSection {
+	
 	}
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
-	.container {
-		background-color: green;
-		width: 940px;
-		height: 100%;
-	}
-	#demo {
-		color:yellow;
-		font-weight:bold;
-		text-align: center;
-	}
-}
- 
-@media (max-width: 767px) {
-	.container {
-		background-color: yellow;
-		width: 724px;
-		height: 100%;
-	}
-	#demo {
-		color:green;
-		font-weight:bold;
-		text-align: center;
-	}
-}
 
-@media (max-width: 480px) {
-	.container {
-		background-color: blue;
-		width: 100%;
-		height: 100%;
-	}
-	#demo {
-		color:red;
-		font-weight:bold;
-		text-align: center;
-	}
-}
+// Responsivity 
 
+    /* Large desktop */
+    @media (min-width: 1200px) {
+
+    }
+     
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) {
+
+    }
+     
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767px) {
+
+    }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) {
+
+    }

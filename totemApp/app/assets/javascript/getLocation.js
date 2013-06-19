@@ -1,17 +1,8 @@
-
-var x=document.getElementById("demo");
-
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
+if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position){
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+          var altitude = position.coords.altitude;
+          document.getElementById('geolocation').innerHTML = 'latitude : ' + latitude + '<br />' + 'longitude : ' + longitude + '<br />' + 'altitude : ' + altitude + '<br />';
+      });
   }
-function showPosition(position)
-  {
-  x.innerHTML="Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-  }
-  showPosition(getLocation());
