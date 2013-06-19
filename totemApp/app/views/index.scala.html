@@ -1,4 +1,5 @@
-@(message: String)
+@(message: String)(positionForm : Form[PositionForm])
+@import helper._
 
 @main("Travelling Totem") {
     
@@ -17,23 +18,29 @@
 	    	</h2>
 	    </div>
     	<div class="row-fluid formSection">
-    		<form>
+			@helper.form(action = routes.Application.submit()) {
     		    <fieldset>
 				    <h3>Check Point</h3>
 				    	<label>Location</label>
 				    	<i class="icon-location-arrow"></i><span id="geolocation"></span>
-				   
-					    <label>Email adresse</label>
-					    <input type="text" placeholder="What's your email ?">
-					    <label>Leave a message</label>
-					    <textarea type="text" placeholder="What's on your mind ?" rows="3"></textarea>
+				       	@inputText(
+                			positionForm("mail"),
+                			'_showConstraints -> false,
+                			'_label -> "Email adresse"
+            			)
+					    @textarea(positionForm("someText"),
+					    	'rows -> 3, 
+					    	'cols -> 50,
+					    	'_label -> "Leave a message"
+					    )
+
 					    <label class="checkbox">
 					    	<input type="checkbox">Receive news about my travel
 					    </label>
 
 					    <button type="submit" class="btn btn-primary btn-block">Submit</button>
 			    </fieldset>
-		    </form>
+			}
     	</div>
   	</div>  
 </div>
