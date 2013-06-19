@@ -13,32 +13,36 @@
 	</div>
 	<div id="wrapper" class="container-fluid">
     	<div class="row-fluid">
-	    	<h2 class="introduction">
-	    		Hello world, I'm the travelling totem ! Someone awesome brought me to you, lucky bastard ! Now it's time to check in : )
+	    	<h2 class="centered">
+	    		~ Aloha ! ~    
 	    	</h2>
+	    	<h3 class="centered">
+	    		Be part of my travel
+	    	</h3>
 	    </div>
     	<div class="row-fluid formSection">
 			@helper.form(action = routes.Application.submit()) {
     		    <fieldset>
-				    <h3>Check Point</h3>
-				    	<label>Location</label>
-				    	<i class="icon-location-arrow"></i><span id="geolocation"></span>
-				       	@inputText(
-                			positionForm("mail"),
-                			'_showConstraints -> false,
-                			'_label -> "Email adresse"
-            			)
-					    @textarea(positionForm("someText"),
-					    	'rows -> 3, 
-					    	'cols -> 50,
-					    	'_label -> "Leave a message"
-					    )
+			    	<div class="asterisk centered"> * </div>
+			    	
+			    	<label class="centered labelTitle"><i class="icon-location-arrow"></i>  Here you are</label>
+				    	
+				    <p id="geolocation" class="centered">Longitude / Latitude</p>
+			   
+				    <div class="asterisk centered"> * </div>
 
-					    <label class="checkbox">
-					    	<input type="checkbox">Receive news about my travel
-					    </label>
+				    <label class="emailField centered labelTitle">What's your @@ email ?</label>
+				    <input id="mail" name="mail" class="span12 emailInput" type="text" placeholder="totem@@totem.com">
 
-					    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+				    <div class="asterisk centered"> * </div>
+
+				    <label class="centered labelTitle">Leave me a cool message !</label>
+				    <textarea id="someText" name="someText" class="span12" type="text" placeholder="What's on your mind ?" rows="5"></textarea>
+				    <label class="checkbox">
+				    	<input type="checkbox">Receive updates about my travel
+				    </label>
+
+				    <button type="submit" class="btn btn-success btn-block btnSubmit">Submit</button>
 			    </fieldset>
 			}
     	</div>
