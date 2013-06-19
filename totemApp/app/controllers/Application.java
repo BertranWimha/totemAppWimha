@@ -48,7 +48,7 @@ public class Application extends Controller {
 			e.printStackTrace();
 			return ok("erreur");
 		}
-		return ok("ajouté");
+        return ok(index.render("Your new application is ready.",filledForm));
 		// String url="https://www.googleapis.com/fusiontables/v1/query?key=1ufKusfsyRj1Xr1zgwpplSrw8F6nXjTpNrnzgoWY";
 		// return async(
   //       	WS.url(url)

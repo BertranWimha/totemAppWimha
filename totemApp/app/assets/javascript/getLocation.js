@@ -5,5 +5,7 @@ if(navigator.geolocation){
       var altitude = position.coords.altitude;
       //document.getElementById('geolocation').innerHTML = 'latitude : ' + latitude + '<br />' + 'longitude : ' + longitude + '<br />' + 'altitude : ' + altitude + '<br />';
   	$('#geolocation').innerHTML(latitude + longitude); 
+  	$('#lat').attr("value",latitude); 
+  	$('#lon').attr("value",longitude); 
   });
 }

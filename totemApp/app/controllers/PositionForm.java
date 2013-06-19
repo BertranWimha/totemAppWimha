@@ -15,7 +15,13 @@ public class PositionForm {
 
 	@Required
 	public String mail;
-	public String someText;
+	public String message;
+
+	@Required
+	public String lat;
+
+	@Required
+	public String lon;
 
 
 	public PositionForm() {
