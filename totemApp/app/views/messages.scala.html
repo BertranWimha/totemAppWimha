@@ -1,0 +1,10 @@
+@(messages : List[controllers.Message])
+
+@main("Travelling Totem") {
+
+
+	@for(message <- messages){
+		<p> @message.message </p>
+	}
+
+}

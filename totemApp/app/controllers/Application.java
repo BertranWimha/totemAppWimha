@@ -9,9 +9,13 @@ import play.libs.WS;
 
 import views.html.*;
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+
 public class Application extends Controller {
   
 
@@ -41,14 +45,17 @@ public class Application extends Controller {
  
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(mail+","+message+","+lat+","+lon+"\n");
+			bw.write(mail+", "+message+", "+lat+", "+lon+"\n");
 			bw.close();
   
 		} catch (IOException e) {
 			e.printStackTrace();
 			return ok("erreur");
 		}
-        return ok(index.render("Your new application is ready.",filledForm));
+
+
+
+        return redirect(routes.Application.messages());
 		// String url="https://www.googleapis.com/fusiontables/v1/query?key=1ufKusfsyRj1Xr1zgwpplSrw8F6nXjTpNrnzgoWY";
 		// return async(
   //       	WS.url(url)
@@ -62,5 +69,27 @@ public class Application extends Controller {
   //     	  	)
   //  		);
     }
+
+   	public static Result messages() {
+   		ArrayList<Message> res=new ArrayList<Message>();
+   		try{
+			BufferedReader reader = new BufferedReader(new FileReader("public/positions.txt"));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
+				Message m=new Message();
+
+				m.mail=tokenizer.nextToken();
+				Logger.debug(m.mail);
+				m.message=tokenizer.nextToken();
+				Logger.debug(m.message);
+				m.lat=tokenizer.nextToken();
+				m.lon=tokenizer.nextToken();
+				res.add(m);
+			}
+		} catch (IOException e) {
+		}
+		return ok(messages.render(res));
+	}
   
 }
