@@ -13,4 +13,5 @@ function showPosition(position){
   x.innerHTML="MyLatitude: " + position.coords.latitude +
   "<br>MyLongitude: " + position.coords.longitude;
   }
-  showPosition(getLocation());
+
+getLocation();
