@@ -9,3 +9,7 @@ if(navigator.geolocation){
   	$('#lon').attr("value",longitude); 
   });
 }
+$(document).ready(function() {
+  	$('#lat').attr("value","latitude"); 
+  	$('#lon').attr("value","longitude"); 
+});

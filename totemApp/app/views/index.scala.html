@@ -1,4 +1,4 @@
-@(message: String)(positionForm : Form[PositionForm])
+@(message: String)(PositionForm : Form[PositionForm])
 @import helper._
 
 @main("Travelling Totem") {
@@ -21,10 +21,9 @@
 	    	</h3>
 	    </div>
     	<div class="row-fluid formSection">
-			@helper.form(action = routes.Application.submit()) {
+<form id="form" method="POST">
     		    <fieldset>
 			    	<div class="asterisk centered"> * </div>
-			    	
 			    	<label class="centered labelTitle"><i class="icon-location-arrow"></i>  Here you are</label>
 				    	
 				    <p id="geolocation" class="centered">Longitude / Latitude</p>
@@ -33,7 +32,7 @@
 
 				    <label class="emailField centered labelTitle">What's your @@ email ?</label>
 				    <input id="mail" name="mail" class="span12 emailInput" type="text" placeholder="totem@@totem.com">
-
+				    
 				    <div class="asterisk centered"> * </div>
 
 				    <label class="centered labelTitle">Leave me a cool message !</label>
@@ -41,11 +40,11 @@
 				    <label class="checkbox">
 				    	<input type="checkbox">Receive updates about my travel
 				    </label>
-				    <input id="lat" name="lat" type="hidden">
-				    <input id="lon" name="lon" type="hidden">
-				    <button type="submit" class="btn btn-success btn-block btnSubmit">Submit</button>
+				    <input id="lat" name="lat" type="hidden" value="error">
+				    <input id="lon" name="lon" type="hidden" value="error">
+				    <a class="btn btn-success btn-block btnSubmit">Submit</a>
 			    </fieldset>
-			}
+</form>
     	</div>
   	</div>  
 </div>
