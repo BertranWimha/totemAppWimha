@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
 	$(".btnSubmit").on("click", function(e){
-					console.log("click");
 		$(".error").remove();
 		$.ajax({
 			url: "/",
@@ -13,7 +12,7 @@ $(document).ready(function() {
 						$("#mail").after("<p class='error'>"+data.error.mail+"</p>");
 					}
 					if(data.error.lat || data.error.lon){
-						$("#geolocation").after("<p class='error'> your location isn't available</p>");
+						$("#demo").after("<p class='error'> your location isn't available</p>");
 					}
 				} else {
 					location.href="/messages";

@@ -1,5 +1,5 @@
 
-var x=document.getElementById("demo");
+var x=$("#demo");
 
 function getLocation(){
   if (navigator.geolocation){
@@ -10,6 +10,8 @@ function getLocation(){
 }
 
 function showPosition(position){
+	$("#lat").val(position.coords.latitude);
+	$("#lon").val(position.coords.longitude);
   x.innerHTML="MyLatitude: " + position.coords.latitude +
   "<br>MyLongitude: " + position.coords.longitude;
   }
