@@ -19,7 +19,6 @@ public class PositionForm {
 	        "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
 	);
 
-	@Required
 	public String mail;
 
 	public String message;
@@ -41,9 +40,11 @@ public class PositionForm {
 
 		// if from before to
 		List<ValidationError> toErrors = new ArrayList<ValidationError>();
-
-		if (!rfc2822.matcher(mail).matches()) {
-			toErrors.add(new ValidationError("mail", "This is not a mail address" , null));
+		if (mail==null || mail.equals("")) {
+			toErrors.add(new ValidationError("mail", "Please enter your email : )" , null));
+			errorList.put("mail", toErrors);
+		} else if (!rfc2822.matcher(mail).matches()) {
+			toErrors.add(new ValidationError("mail", "Are you sure about your mail address ?" , null));
 			errorList.put("mail", toErrors);
 		} 
 

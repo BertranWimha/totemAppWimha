@@ -16,11 +16,14 @@ object ApplicationBuild extends Build {
 
   )
 
-  resolvers += Resolver.url("Autoping repository", url("http://ndeverge.github.com/autoping-play2-plugin/snapshots/"))(Resolver.ivyStylePatterns)
 
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
    lessEntryPoints <<= baseDirectory(_ / "app" / "assets" / "stylesheets" ** "main.less")
- )
+ ).settings(  
+    // Add your own project settings here
+  resolvers += Resolver.url("Autoping repository", url("http://ndeverge.github.com/autoping-play2-plugin/snapshots/"))(Resolver.ivyStylePatterns)
+   // javacOptions +="-Xlint:all"
+    )
 
 }
