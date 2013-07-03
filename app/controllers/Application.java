@@ -110,7 +110,9 @@ public class Application extends Controller {
 			}
 		} catch (IOException e) {
 		}
-		return ok(messages.render(res));
+			ObjectNode json = Json.newObject();
+				json.put("html", messages.render(res).toString());
+				return ok(json);	
 	}
   
 }

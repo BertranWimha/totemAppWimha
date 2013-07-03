@@ -18,10 +18,35 @@ body {
 	.centered {
 		text-align: center;
 	}
+	.italic {
+		font-style: italic;
+	}
+	.fontSmall {
+		font-size: 10px;
+	}
 	.labelTitle{
 		font-size: 14px;
 	}
-	.formSection {
+	.btn {
+		height: 40px;
+		margin-top: 10px;
+	}
+	#detailSection {
+		.btn-start {
+			margin-top: 10px;			
+		}
+		margin-bottom:10px;
+	}
+	#messagesSection {
+		.icon-quote-left, .icon-quote-right {
+			color: @yellow;
+		}
+		.btn-more, .btn-next {
+			margin-bottom: 10px;
+		}
+	}
+
+	#formSection {
 		.emailInput {
 			min-height:40px;
 		}
@@ -29,7 +54,6 @@ body {
 			margin-top: 10px;
 		}
 		.btnSubmit {
-			height: 40px;
 			margin-top: 10px;
 		}
 		.error {

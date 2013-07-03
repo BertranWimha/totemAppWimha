@@ -1,5 +1,21 @@
 $(document).ready(function() {
 
+	$(".btn-start").on("click", function(e){
+		$(".error").remove();
+		$.ajax({
+			url: "/messages",
+			type: "GET",
+			success: function(data) {
+				$('#detailSection').addClass("hide");
+				$('#messagesSection').removeClass("hide");
+				$("#messagesSection").html(data.html);
+			},
+			error: function() {
+				console.log("Error updating");
+			}
+		});
+	});
+
 	$(".btnSubmit").on("click", function(e){
 		$(".error").remove();
 		$.ajax({
@@ -14,8 +30,6 @@ $(document).ready(function() {
 					if(data.error.lat || data.error.lon){
 						$("#demo").after("<p class='error'> your location isn't available</p>");
 					}
-				} else {
-					location.href="/messages";
 				}
 			},
 			error: function() {
@@ -23,5 +37,11 @@ $(document).ready(function() {
 			}
 		});
 	});
-
 });
+
+	$(".btn-next").live("click", function(){
+		$("#messagesSection").addClass("hide");
+		$("#formSection").removeClass("hide");
+	});
+
+

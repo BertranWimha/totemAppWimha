@@ -8,20 +8,33 @@
 <div class="page-container">
 	<div class="navbar navbar-fixed-top">
 	 <div class="navbar-inner">
-		<a class="brand" href="#">Follow the Totem</a>
+		<a class="brand" href="#">Wimha's Totem</a>
 	 </div>
 	</div>
 	<div id="wrapper" class="container-fluid">
-    	<div class="row-fluid">
+    	<div id="detailSection" class="row-fluid">
 	    	<h2 class="centered">
 	    		~ Aloha ! ~    
 	    	</h2>
+			<div class="asterisk centered"> * </div>
 	    	<h3 class="centered">
-	    		Be part of my travel
+	    		I'm traveling the world thanks to awesome people I meet ! 
 	    	</h3>
+			<div class="asterisk centered"> * </div>
+	    	<h3 class="centered">
+	    		Discover where I've been and be part of my trip ! 
+	    	</h3>
+	    	<div class="row-fluid">
+	    		<button class="btn btn-block btn-primary btn-start">
+	    			Start !
+	    		</button>
+	    	</div>
 	    </div>
-    	<div class="row-fluid formSection">
-<form id="form" method="POST">
+	    <div id="messagesSection" class="row-fluid hide">
+
+	    </div>
+    	<div id="formSection" class="row-fluid hide">
+			<form id="form" method="POST">
     		    <fieldset>
 			    	<div class="asterisk centered"> * </div>
 			    	<label class="centered labelTitle"><i class="icon-location-arrow"></i>  Here you are</label>
@@ -44,7 +57,7 @@
 				    <input id="lon" name="lon" type="hidden">
 				    <a class="btn btn-success btn-block btnSubmit">Submit</a>
 			    </fieldset>
-</form>
+			</form>
     	</div>
   	</div>  
 </div>
