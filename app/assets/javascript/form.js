@@ -9,6 +9,11 @@ $(document).ready(function() {
 				$('#detailSection').addClass("hide");
 				$('#messagesSection').removeClass("hide");
 				$("#messagesSection").html(data.html);
+
+				$("#btn-next").on("click", function(){
+					$("#messagesSection").addClass("hide");
+					$("#formSection").removeClass("hide");
+				});
 			},
 			error: function() {
 				console.log("Error updating");
@@ -31,20 +36,13 @@ $(document).ready(function() {
 						$("#demo").after("<p class='error'> your location isn't available</p>");
 					}
 				}
+				$("#formSection").addClass("hide");
+				$("#feedbackSection").removeClass("hide");
 			},
 			error: function() {
 				console.log("Error updating");
 			}
 		});
 	});
-});
-
-$(".btn-next").on("click", function(){
-	$("#messagesSection").addClass("hide");
-	$("#formSection").removeClass("hide");
-});
-$(".btnSubmit").on("click", function(){
-	$("#formSection").addClass("hide");
-	$("#feedbackSection").removeClass("hide");
 });
 
