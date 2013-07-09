@@ -14,7 +14,7 @@
 	<div id="wrapper" class="container-fluid">
     	<div id="detailSection" class="row-fluid">
 	    	<h2 class="centered">
-	    		~ Aloha ! ~    
+	    		~ ALOHA ! ~    
 	    	</h2>
 			<div class="asterisk centered"> * </div>
 	    	<h3 class="centered">
@@ -30,17 +30,30 @@
 	    		</button>
 	    	</div>
 	    </div>
-	    <div id="messagesSection" class="row-fluid hide">
+	    <div id="messagesSection" class="row-fluid ">
 
 	    </div>
-    	<div id="formSection" class="row-fluid hide">
+    	<div id="formSection" class="row-fluid ">
+    		<h2 class="centered">
+	  			~ Now it's your turn to enter the adventure ! ~
+			</h2>
 			<form id="form" method="POST">
     		    <fieldset>
+					<div class="asterisk centered"> * </div>
+
+				    <label class="nameField centered labelTitle">What's your name ?</label>
+				    <input id="name" name="nale" class="span12 nameInput" type="text" placeholder="John">
+
 			    	<div class="asterisk centered"> * </div>
-			    	<label class="centered labelTitle"><i class="icon-location-arrow"></i>  Here you are</label>
-				    	
-				    <p id="demo" class="centered">Longitude / Latitude</p>
-			   
+
+			    	<label class="centered labelTitle">Let us know where you are</label>
+				    <div class="btn btn-block">
+				    	<i class="icon-location-arrow"></i>  Click here
+				    </div>
+				    <p id="demo" class="centered hide">Longitude / Latitude</p>
+				    <input id="lat" name="lat" type="hidden">
+				    <input id="lon" name="lon" type="hidden">
+
 				    <div class="asterisk centered"> * </div>
 
 				    <label class="emailField centered labelTitle">What's your @@ email ?</label>
@@ -50,14 +63,25 @@
 
 				    <label class="centered labelTitle">Leave me a cool message !</label>
 				    <textarea id="message" name="message" class="span12" type="text" placeholder="What's on your mind ?" rows="5"></textarea>
-				    <label class="checkbox">
-				    	<input type="checkbox">Receive updates about my travel
-				    </label>
-				    <input id="lat" name="lat" type="hidden">
-				    <input id="lon" name="lon" type="hidden">
 				    <a class="btn btn-success btn-block btnSubmit">Submit</a>
 			    </fieldset>
 			</form>
+    	</div>
+    	<div id="feedbackSection" class="row-fluid ">
+    		<h2 class="centered">
+	    		~ Well done ! ~    
+	    	</h2>
+    		<div class="row-fluid">
+				<h3> userName <span class="italic fontSmall">Time stamp</span></h3>
+			</div>
+			<p class="centered"><i class="icon-map-marker"></i> Lat : XXX / Long : YYY</p>
+			<p class="centered italic"><i class="icon-quote-left"></i>  YOYOYOOYOYOY  <i class="icon-quote-right"></i></p>
+			</br>
+			<div class="asterisk centered"> * </div>    		
+
+    		<h2 class="centered">
+	    		~ Would you like to share this moment with your friends ? ~    
+	    	</h2>
     	</div>
   	</div>  
 </div>

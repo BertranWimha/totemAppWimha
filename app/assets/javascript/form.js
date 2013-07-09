@@ -39,9 +39,12 @@ $(document).ready(function() {
 	});
 });
 
-	$(".btn-next").live("click", function(){
-		$("#messagesSection").addClass("hide");
-		$("#formSection").removeClass("hide");
-	});
-
+$(".btn-next").on("click", function(){
+	$("#messagesSection").addClass("hide");
+	$("#formSection").removeClass("hide");
+});
+$(".btnSubmit").on("click", function(){
+	$("#formSection").addClass("hide");
+	$("#feedbackSection").removeClass("hide");
+});
 

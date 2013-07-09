@@ -1,5 +1,8 @@
 @(messages : List[controllers.Message])
 
+	<h2 class="centered">
+	    ~ May I introduce you to my traveling buddies ? ~
+	</h2>
 	@for(message <- messages){
 		<div class="row-fluid">
 			<h3> Name <span class="italic fontSmall">Time stamp</span></h3>
@@ -10,5 +13,5 @@
 	}
 	<div class="row-fluid">
 		<button class="btn btn-block btn-more">More messages</button>
-		<button class="btn btn-primary btn-block btn-next">Next Step</button>
+		<button id="btn-next" class="btn btn-primary btn-block">Next Step</button>
 	</div>
