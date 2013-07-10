@@ -35,7 +35,24 @@ public class Application extends Controller {
     }
 
     public static Result map(){
-		return ok(map.render());
+
+   		ArrayList<Message> res=new ArrayList<Message>();
+   		try{
+			BufferedReader reader = new BufferedReader(new FileReader("public/positions.txt"));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
+				Message m=new Message();
+
+				m.mail=tokenizer.nextToken();
+				m.message=tokenizer.nextToken();
+				m.lat=tokenizer.nextToken();
+				m.lon=tokenizer.nextToken();
+				res.add(m);
+			}
+		} catch (IOException e) {
+		}
+		return ok(map.render(res));
 	}
 
     public static Result submit() {
