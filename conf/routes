@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET     /map                           controllers.Application.map()
 POST    /                           controllers.Application.submit()
 GET     /messages                   controllers.Application.messages()
 GET     /address/:lat/:lon          controllers.Application.address(lat : String, lon:String)

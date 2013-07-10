@@ -34,6 +34,10 @@ public class Application extends Controller {
         return ok(index.render("Your new application is ready.",positionForm));
     }
 
+    public static Result map(){
+		return ok(map.render());
+	}
+
     public static Result submit() {
 		Form<PositionForm> filledForm = positionForm.bindFromRequest();
 
