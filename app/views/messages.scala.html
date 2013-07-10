@@ -5,7 +5,7 @@
 	</h2>
 	@for(message <- messages){
 		<div class="row-fluid">
-			<h3> Name <span class="italic fontSmall">Time stamp</span></h3>
+			<h3> @message.name <span class="italic fontSmall">@message.timestamp</span></h3>
 		</div>
 		<p class="centered"><i class="icon-map-marker"></i> Lat : @message.lat / Long : @message.lon</p>
 		<p class="centered italic"><i class="icon-quote-left"></i>  @message.message  <i class="icon-quote-right"></i></p>

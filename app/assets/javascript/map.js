@@ -15,12 +15,23 @@ $(document).ready(function() {
         $(".coord").each(function(){
           var lat=$(this).find("#lat").attr('value');
           var lon = $(this).find("#lon").attr('value');
+          var name = $(this).find("#name").attr('value');
+          var msg = $(this).find("#msg").attr('value');
           var myLatlng = new google.maps.LatLng(lat,lon);
+
+          var infowindow = new google.maps.InfoWindow({
+            content: "<strong>" +  name + "</strong> : " + msg
+          });
 
           var marker = new google.maps.Marker({
               position: myLatlng,
               map: map,
               title: 'Hello World!'
           });
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+          });
+
         })  
 });

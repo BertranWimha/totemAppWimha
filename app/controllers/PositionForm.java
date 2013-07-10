@@ -19,8 +19,13 @@ public class PositionForm {
 	        "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
 	);
 
+	@Required
+	public String name;
+
+	@Required
 	public String mail;
 
+	@Required
 	public String message;
 
 	@Required

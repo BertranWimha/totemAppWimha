@@ -44,6 +44,7 @@ public class Application extends Controller {
 				java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
 				Message m=new Message();
 
+				m.name=tokenizer.nextToken();
 				m.mail=tokenizer.nextToken();
 				m.message=tokenizer.nextToken();
 				m.lat=tokenizer.nextToken();
@@ -65,6 +66,7 @@ public class Application extends Controller {
 				return ok(error);
 			} else {
 
+				String name=filledForm.data().get("name");
 				String mail=filledForm.data().get("mail");
 				String message=filledForm.data().get("message");
 				String lat=filledForm.data().get("lat");
@@ -82,7 +84,7 @@ public class Application extends Controller {
 		 
 					FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 					BufferedWriter bw = new BufferedWriter(fw);
-					bw.write(mail+", "+message+", "+lat+", "+lon+", "+new Date().getTime()+"\n");
+					bw.write(name+", "+mail+", "+message+", "+lat+", "+lon+", "+new Date().getTime()+"\n");
 					bw.close();
 		  
 				} catch (IOException e) {
@@ -98,6 +100,7 @@ public class Application extends Controller {
 						java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
 						Message m=new Message();
 
+						m.name=tokenizer.nextToken();
 						m.mail=tokenizer.nextToken();
 						m.message=tokenizer.nextToken();
 						m.lat=tokenizer.nextToken();
@@ -123,10 +126,12 @@ public class Application extends Controller {
 				java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
 				Message m=new Message();
 
+				m.name=tokenizer.nextToken();
 				m.mail=tokenizer.nextToken();
 				m.message=tokenizer.nextToken();
 				m.lat=tokenizer.nextToken();
 				m.lon=tokenizer.nextToken();
+				m.timestamp=tokenizer.nextToken();
 				res.add(m);
 			}
 		} catch (IOException e) {
