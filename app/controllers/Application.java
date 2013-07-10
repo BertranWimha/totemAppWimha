@@ -15,10 +15,14 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.codehaus.jackson.node.ObjectNode;
 import play.libs.Json;
-
+import play.libs.F;
+import play.libs.F.Promise;
+import play.libs.Json;
+import play.libs.WS;
 
 public class Application extends Controller {
   
@@ -57,7 +61,7 @@ public class Application extends Controller {
 		 
 					FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 					BufferedWriter bw = new BufferedWriter(fw);
-					bw.write(mail+", "+message+", "+lat+", "+lon+"\n");
+					bw.write(mail+", "+message+", "+lat+", "+lon+", "+new Date().getTime()+"\n");
 					bw.close();
 		  
 				} catch (IOException e) {
@@ -74,9 +78,7 @@ public class Application extends Controller {
 						Message m=new Message();
 
 						m.mail=tokenizer.nextToken();
-						Logger.debug(m.mail);
 						m.message=tokenizer.nextToken();
-						Logger.debug(m.message);
 						m.lat=tokenizer.nextToken();
 						m.lon=tokenizer.nextToken();
 						res.add(m);
@@ -84,7 +86,7 @@ public class Application extends Controller {
 				} catch (IOException e) {
 				}
 				ObjectNode json = Json.newObject();
-				json.put("url", messages.render(res).toString());
+				json.put("url", address(lat,lon).toString());//messages.render(res).toString());
 				return ok(json);
 
 
@@ -101,9 +103,7 @@ public class Application extends Controller {
 				Message m=new Message();
 
 				m.mail=tokenizer.nextToken();
-				Logger.debug(m.mail);
 				m.message=tokenizer.nextToken();
-				Logger.debug(m.message);
 				m.lat=tokenizer.nextToken();
 				m.lon=tokenizer.nextToken();
 				res.add(m);
@@ -113,6 +113,17 @@ public class Application extends Controller {
 		return ok(messages.render(res));
 	}
   
+
+	public static String address(final String lat,final String lon){
+		Promise<WS.Response> request =
+		WS.url("http://maps.googleapis.com/maps/api/geocode/json")
+		.setQueryParameter("latlng",lat+","+lon).setQueryParameter("sensor", "true")
+		.post("content");
+							
+		String addr = request.get().asJson().path("results").get(0).get("formatted_address").toString();
+		return addr;
+	}
+
 }
 
 
