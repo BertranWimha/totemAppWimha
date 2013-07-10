@@ -18,18 +18,42 @@ body {
 	.centered {
 		text-align: center;
 	}
+	.italic {
+		font-style: italic;
+	}
+	.fontSmall {
+		font-size: 10px;
+	}
 	.labelTitle{
 		font-size: 14px;
 	}
-	.formSection {
-		.emailInput {
+	.btn {
+		padding: 20px;
+		margin-top: 10px;
+	}
+	.icon-quote-left, .icon-quote-right {
+		color: @yellow;
+	}
+	#detailSection {
+		.btn-start {
+			margin-top: 10px;			
+		}
+		margin-bottom:10px;
+	}
+	#messagesSection {
+		.btn-more, .btn-next {
+			margin-bottom: 10px;
+		}
+	}
+
+	#formSection {
+		.emailInput, .nameInput {
 			min-height:40px;
 		}
 		.emailField {
 			margin-top: 10px;
 		}
 		.btnSubmit {
-			height: 40px;
 			margin-top: 10px;
 		}
 		.error {
