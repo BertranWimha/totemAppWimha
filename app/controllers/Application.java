@@ -86,7 +86,7 @@ public class Application extends Controller {
 				} catch (IOException e) {
 				}
 				ObjectNode json = Json.newObject();
-				json.put("url", address(lat,lon).toString());//messages.render(res).toString());
+				json.put("url", messages.render(res).toString());
 				return ok(json);
 
 
@@ -116,14 +116,17 @@ public class Application extends Controller {
 	}
   
 
-	public static String address(final String lat,final String lon){
+	public static Result address(final String lat,final String lon){
 		Promise<WS.Response> request =
 		WS.url("http://maps.googleapis.com/maps/api/geocode/json")
 		.setQueryParameter("latlng",lat+","+lon).setQueryParameter("sensor", "true")
 		.post("content");
 							
 		String addr = request.get().asJson().path("results").get(0).get("formatted_address").toString();
-		return addr;
+		
+		ObjectNode json = Json.newObject();
+		json.put("address", addr);
+		return ok(json);
 	}
 
 }
