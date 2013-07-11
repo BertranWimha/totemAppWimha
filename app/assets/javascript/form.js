@@ -41,6 +41,7 @@ $(document).ready(function() {
 				} else{
 					$("#formSection").addClass("hide");
 					$("#feedbackSection").removeClass("hide");
+					$("#shareSection").removeClass("hide");
 				}
 
 			},
