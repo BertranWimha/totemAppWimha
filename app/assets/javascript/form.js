@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$(".btn-start").on("click", function(e){
 		$(".error").remove();
 		$.ajax({
-			url: "/messages/1",
+			url: "/messages/0",
 			type: "GET",
 			success: function(data) {
 				$('#detailSection').addClass("hide");
@@ -68,8 +68,10 @@ function initPage(){
 			url: "/messages/"+(page+1),
 			type: "GET",
 			success: function(data) {
-				$("#messagesContent").prepend(data.html);	
-				$('#messagesSection').data('page',$('#messagesSection').data('page')+1);
+				$("#messagesContent").append(data.html);	
+				$('#messagesSection').data('page',$('#messagesSection').data('page')+1);  
+				$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
 			},
 			error: function() {
 				console.log("Error updating");

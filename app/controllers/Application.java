@@ -126,18 +126,18 @@ public class Application extends Controller {
 			BufferedReader reader = new BufferedReader(new FileReader("public/positions.txt"));
 			String line = null;
 			
-			Logger.debug(p+"");
+			Logger.debug(p+"p");
 
 			int i=0;
 			for(i=0;i<(nb_to_display*p);i++){
 				reader.readLine();
-				Logger.debug(i+"");
+				Logger.debug(i+"ia");
 			}
 
-			while ((line = reader.readLine()) != null && i<=nb_to_display*(p+1)) {
+			while ((line = reader.readLine()) != null && i<nb_to_display*(p+1)) {
 				java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
 				Message m=new Message();
-				Logger.debug(i+"");
+				Logger.debug(i+"ib");
 
 				m.name=tokenizer.nextToken();
 				m.mail=tokenizer.nextToken();
