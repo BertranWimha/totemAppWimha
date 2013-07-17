@@ -6,7 +6,7 @@
 GET     /                           controllers.Application.index()
 GET     /map                           controllers.Application.map()
 POST    /                           controllers.Application.submit()
-GET     /messages                   controllers.Application.messages()
+GET     /messages/:page                   controllers.Application.messages(page : String)
 GET     /address/:lat/:lon          controllers.Application.address(lat : String, lon:String)
 
 # Map static resources from the /public folder to the /assets URL path

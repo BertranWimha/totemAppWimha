@@ -3,17 +3,21 @@ $(document).ready(function() {
 	$(".btn-start").on("click", function(e){
 		$(".error").remove();
 		$.ajax({
-			url: "/messages",
+			url: "/messages/1",
 			type: "GET",
 			success: function(data) {
 				$('#detailSection').addClass("hide");
 				$('#messagesSection').removeClass("hide");
-				$("#messagesSection").html(data.html);
+				$("#messagesContent").html(data.html);
 
 				$("#btn-next").on("click", function(){
 					$("#messagesSection").addClass("hide");
 					$("#formSection").removeClass("hide");
 				});
+
+				initPage();
+
+				
 			},
 			error: function() {
 				console.log("Error updating");
@@ -71,3 +75,21 @@ $(document).ready(function() {
 
 });
 
+function initPage(){
+
+	$(".btn-more").on("click", function(){
+		var page=$('#messagesSection').data('page');
+		console.log(page);
+		$.ajax({
+			url: "/messages/"+(page+1),
+			type: "GET",
+			success: function(data) {
+				$("#messagesContent").prepend(data.html);	
+				$('#messagesSection').data('page',$('#messagesSection').data('page')+1);
+			},
+			error: function() {
+				console.log("Error updating");
+			}
+		});
+	});
+}
