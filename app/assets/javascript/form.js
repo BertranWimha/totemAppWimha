@@ -13,6 +13,7 @@ $(document).ready(function() {
 				$("#btn-next").on("click", function(){
 					$("#messagesSection").addClass("hide");
 					$("#formSection").removeClass("hide");
+				$('html,body').scrollTop(0);
 				});
 			},
 			error: function() {
@@ -39,9 +40,11 @@ $(document).ready(function() {
 						$("#demo").after("<p class='error'> your location isn't available</p>");
 					}
 				} else{
+					$('html,body').scrollTop(0);
 					$("#formSection").addClass("hide");
 					$("#feedbackSection").removeClass("hide");
 					$("#shareSection").removeClass("hide");
+					$('#mapSection').removeClass("hide");
 				}
 
 			},
