@@ -117,14 +117,27 @@ public class Application extends Controller {
 		     }
     }
 
-   	public static Result messages() {
+    public static int nb_to_display=2;
+   	public static Result messages(String page) {
+
+   		int p=Integer.parseInt(page);
    		ArrayList<Message> res=new ArrayList<Message>();
    		try{
 			BufferedReader reader = new BufferedReader(new FileReader("public/positions.txt"));
 			String line = null;
-			while ((line = reader.readLine()) != null) {
+			
+			Logger.debug(p+"p");
+
+			int i=0;
+			for(i=0;i<(nb_to_display*p);i++){
+				reader.readLine();
+				Logger.debug(i+"ia");
+			}
+
+			while ((line = reader.readLine()) != null && i<nb_to_display*(p+1)) {
 				java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(line, ",");
 				Message m=new Message();
+				Logger.debug(i+"ib");
 
 				m.name=tokenizer.nextToken();
 				m.mail=tokenizer.nextToken();
@@ -133,6 +146,7 @@ public class Application extends Controller {
 				m.lon=tokenizer.nextToken();
 				m.timestamp=tokenizer.nextToken();
 				res.add(m);
+				i++;
 			}
 		} catch (IOException e) {
 		}
