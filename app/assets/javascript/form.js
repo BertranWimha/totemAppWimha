@@ -50,21 +50,5 @@ $(document).ready(function() {
 			}
 		});
 	});
-
-	$(".btn-loc").on("click", function(e){
-		var lat = $('#lat').attr("value"); 
-  		var lon = $('#lon').attr("value"); 
-		$.ajax({
-			url: "/address/"+lat+"/"+lon,
-			type: "GET",
-			success: function(data) {
-				$("#demo").html(data.address);
-				$("#demo").show();
-			},
-			error: function() {
-			}
-		});	
-	});
-
 });
 

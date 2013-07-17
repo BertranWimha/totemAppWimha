@@ -1,19 +1,43 @@
+$(document).ready(function() {
 
-var x=$("#demo");
+  $('.btn-loc').click(function(){
+    console.log('enter getloc');
 
-function getLocation(){
-  if (navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(showPosition);
-  }else{
-    x.innerHTML="Geolocation is not supported by this browser.";
-  }
-}
 
-function showPosition(position){
-	$("#lat").val(position.coords.latitude);
-	$("#lon").val(position.coords.longitude);
-  x.innerHTML="MyLatitude: " + position.coords.latitude +
-  "<br>MyLongitude: " + position.coords.longitude;
-  }
+    getLocation();
+  });
+});
 
-getLocation();
+    function getLocation(){
+      var x=$("#demo");
+      if (navigator.geolocation){
+        console.log('navigator ok');
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }else{
+        console.log('navigator notok');
+        x.innerHTML="Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position){
+      var lat = position.coords.latitude; 
+      var lon = position.coords.longitude;
+      var x=$("#demo");
+      console.log(position);
+      $("#lat").attr('value',lat);
+      $("#lon").attr('value',lon);
+      x.innerHTML="MyLatitude: " + position.coords.latitude +
+      "<br>MyLongitude: " + position.coords.longitude;
+   
+      $.ajax({
+        url: "/address/"+lat+"/"+lon,
+        type: "GET",
+        success: function(data) {
+          $("#demo").html(data.address);
+          $("#demo").show();
+        },
+        error: function() {
+        }
+      }); 
+
+    }
