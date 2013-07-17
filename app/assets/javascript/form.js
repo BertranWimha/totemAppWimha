@@ -38,6 +38,9 @@ $(document).ready(function() {
 					if(data.error.lat || data.error.lon){
 						$("#demo").after("<p class='error'> your location isn't available</p>");
 					}
+					if(data.error.message){
+						$("#message").after("<p class='error'>say something !</p>");
+					}
 				} else{
 					$("#formSection").addClass("hide");
 					$("#feedbackSection").removeClass("hide");
