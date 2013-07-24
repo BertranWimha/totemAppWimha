@@ -34,6 +34,7 @@ $(document).ready(function() {
         type: "GET",
         success: function(data) {
           $("#demo").html(data.address);
+          $("#feedbackLoc").html(data.address);
           $("#demo").show();
         },
         error: function() {

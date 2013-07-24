@@ -52,6 +52,8 @@ $(document).ready(function() {
 					$("#feedbackSection").removeClass("hide");
 					$("#shareSection").removeClass("hide");
 					$('#mapSection').removeClass("hide");
+					$('#feedbackMessage').html($('#message').val());
+					$('#feedbackName').html($('#name').val());
 				}
 
 			},
