@@ -54,6 +54,8 @@ $(document).ready(function() {
 					$('#mapSection').removeClass("hide");
 					$('#feedbackMessage').html($('#message').val());
 					$('#feedbackName').html($('#name').val());
+					$('#feedbackTimeStamp').html(data.timestamp);
+					//$('.twitter-share-button').attr('data-text',$('#message').val());
 				}
 
 			},

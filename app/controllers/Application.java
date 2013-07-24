@@ -24,6 +24,9 @@ import play.libs.F.Promise;
 import play.libs.Json;
 import play.libs.WS;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class Application extends Controller {
   
 
@@ -58,7 +61,7 @@ public class Application extends Controller {
 
     public static Result submit() {
 		Form<PositionForm> filledForm = positionForm.bindFromRequest();
-
+			String timestamp = (new Date().getTime()+"");
 
 			if (filledForm.hasErrors()) {
 				ObjectNode error = Json.newObject();
@@ -81,10 +84,9 @@ public class Application extends Controller {
 					if (!file.exists()) {
 						file.createNewFile();
 					}
-		 
 					FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 					BufferedWriter bw = new BufferedWriter(fw);
-					bw.write(name+", "+mail+", "+message+", "+lat+", "+lon+", "+new Date().getTime()+"\n");
+					bw.write(name+", "+mail+", "+message+", "+lat+", "+lon+", "+timestamp+"\n");
 					bw.close();
 		  
 				} catch (IOException e) {
@@ -105,12 +107,14 @@ public class Application extends Controller {
 						m.message=tokenizer.nextToken();
 						m.lat=tokenizer.nextToken();
 						m.lon=tokenizer.nextToken();
+						m.timestamp=tokenizer.nextToken();
 						res.add(m);
 					}
 				} catch (IOException e) {
 				}
 				ObjectNode json = Json.newObject();
 				json.put("url", messages.render(res).toString());
+				json.put("timestamp", getDate(timestamp));
 				return ok(json);
 
 
@@ -167,6 +171,13 @@ public class Application extends Controller {
 		ObjectNode json = Json.newObject();
 		json.put("address", addr);
 		return ok(json);
+	}
+
+	public static String getDate(String timestamp) {
+  		Date date = new Date(Long.valueOf(timestamp.trim()));
+  		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String dat = dateFormat.format(date);
+		return dat;
 	}
 
 }
