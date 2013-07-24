@@ -12,6 +12,7 @@ object ApplicationBuild extends Build {
     javaCore,
     javaJdbc,
     javaEbean,
+    "com.typesafe" %% "play-plugins-mailer" % "2.1.0",
     "com.github.ndeverge" %% "autoping-play2-plugin" % "0.1.0-SNAPSHOT"
 
   )

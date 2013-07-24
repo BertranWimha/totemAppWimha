@@ -23,6 +23,7 @@ import play.libs.F;
 import play.libs.F.Promise;
 import play.libs.Json;
 import play.libs.WS;
+import com.typesafe.plugin.*;
 
 public class Application extends Controller {
   
@@ -86,6 +87,13 @@ public class Application extends Controller {
 					BufferedWriter bw = new BufferedWriter(fw);
 					bw.write(name+", "+mail+", "+message+", "+lat+", "+lon+", "+new Date().getTime()+"\n");
 					bw.close();
+
+					
+			      MailerAPI mailToSend = play.Play.application().plugin(MailerPlugin.class).email();
+			      mailToSend.setSubject("Totem");
+			      mailToSend.addRecipient(mail);
+			      mailToSend.addFrom("Wimha <"+ "admin@wimha.com" +">");
+			      mailToSend.sendHtml("<html>L'utilisateur " + " a perdu son mot de passe.</html>");
 		  
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -109,6 +117,10 @@ public class Application extends Controller {
 					}
 				} catch (IOException e) {
 				}
+
+
+
+
 				ObjectNode json = Json.newObject();
 				json.put("url", messages.render(res).toString());
 				return ok(json);
