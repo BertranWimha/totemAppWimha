@@ -53,6 +53,8 @@ public class Application extends Controller {
 				m.message=tokenizer.nextToken();
 				m.lat=tokenizer.nextToken();
 				m.lon=tokenizer.nextToken();
+				m.timestamp=tokenizer.nextToken();
+
 				res.add(m);
 			}
 		} catch (IOException e) {
